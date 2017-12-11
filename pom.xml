@@ -1,9 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.hw.api</groupId>
-	<artifactId>com.hw.api</artifactId>
-	<packaging>war</packaging>
+	<groupId>com.hornellp.cdbg.test</groupId>
+	<artifactId>horne-test-automation</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<name>API</name>
 	<url>http://maven.apache.org</url>
@@ -38,7 +37,7 @@
     	</dependency>
 	</dependencies>
 	<scm>
-		<url>https://github.com/hwang777/jena-rest-api.git</url>
+		<url>https://github.com/hwang777/horne-cdbg-test-automation .git</url>
 	</scm>
 	<build>
 		<finalName>api</finalName>

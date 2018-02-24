@@ -3,6 +3,7 @@ package com.hornellp.cdbg.test.ui;
 
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,8 +23,8 @@ public class TestUI {
         driver = new ChromeDriver();
     }
     @Test
-    public void completingAForm() throws Exception {
-    	driver.get("https://hornellpdev.appiancloud.com/suite/sites/horne-cdbg/page/cases");
+    public void getCase() throws Exception {
+    	driver.get("https://hornellpdev.appiancloud.com/suite/sites/cdbg/page/cases");
 
         WebElement email = driver.findElement(By.id("un"));
         Thread.sleep(1000);
@@ -32,7 +33,7 @@ public class TestUI {
         Thread.sleep(1000);
         WebElement password = driver.findElement(By.id("pw"));
         password.clear();
-        password.sendKeys("best@123");
+        password.sendKeys("appian");
         Thread.sleep(1000);
         
         //driver.findElement(By.cssSelector("input[type='submit']"))
@@ -41,8 +42,45 @@ public class TestUI {
         new Actions(driver)
         .click(driver.findElement(By.cssSelector("input[type='submit']")))
         .perform();
-        Thread.sleep(5000);
-        assertThat(driver.findElements(By.id("appian-body")), hasSize(1));
+        Thread.sleep(15000);
+        assertTrue(driver.findElements(By.id("appian-body")).size() > 0);
+        new Actions(driver)
+        .click(driver.findElement(By.xpath("//a[text()[contains(.,'TX-FL16-01368')]]"))).perform();
+        Thread.sleep(10000);
+        
+
+        //driver.close();
 
     }
+
+@Test
+public void reassignTask() throws Exception {
+	driver.get("https://hornellpdev.appiancloud.com/suite/sites/cdbg/page/task");
+
+    WebElement email = driver.findElement(By.id("un"));
+    Thread.sleep(1000);
+    email.clear();
+    email.sendKeys("henry.wang@bestit.com");
+    Thread.sleep(1000);
+    WebElement password = driver.findElement(By.id("pw"));
+    password.clear();
+    password.sendKeys("appian");
+    Thread.sleep(1000);
+    
+    //driver.findElement(By.cssSelector("input[type='submit']"))
+    //   .click();
+    
+    new Actions(driver)
+    .click(driver.findElement(By.cssSelector("input[type='submit']")))
+    .perform();
+    Thread.sleep(15000);
+    assertTrue(driver.findElements(By.id("appian-body")).size() > 0);
+    new Actions(driver)
+    .click(driver.findElement(By.xpath("//a[text()[contains(.,'TX-FL16-01368')]]"))).perform();
+    Thread.sleep(10000);
+    
+
+    //driver.close();
+
+}
 }

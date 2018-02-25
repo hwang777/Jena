@@ -55,7 +55,7 @@ public class TestUI {
 
 @Test
 public void reassignTask() throws Exception {
-	driver.get("https://hornellpdev.appiancloud.com/suite/sites/cdbg/page/task");
+	driver.get("https://hornellpdev.appiancloud.com/suite/sites/cdbg/page/tasks");
 
     WebElement email = driver.findElement(By.id("un"));
     Thread.sleep(1000);
@@ -75,9 +75,6 @@ public void reassignTask() throws Exception {
     .perform();
     Thread.sleep(15000);
     assertTrue(driver.findElements(By.id("appian-body")).size() > 0);
-    new Actions(driver)
-    .click(driver.findElement(By.xpath("//a[text()[contains(.,'TX-FL16-01368')]]"))).perform();
-    Thread.sleep(10000);
     
 
     //driver.close();
